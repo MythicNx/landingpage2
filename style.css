@@ -466,8 +466,26 @@ html[dir="ltr"] .pack-side { align-items: flex-end; }
   grid-template-columns: 1fr;
   gap: 16px;
 }
-@media (min-width: 700px) { .trust { grid-template-columns: repeat(4, 1fr); } }
-.trust li { display: flex; align-items: center; gap: 12px; }
+
+@media (min-width: 700px) {
+  .trust {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 699px) {
+  .trust {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+}
+
+.trust li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .trust i {
   font-size: 1.5rem;
   color: var(--accent);
@@ -476,8 +494,16 @@ html[dir="ltr"] .pack-side { align-items: flex-end; }
   padding: 9px;
   flex-shrink: 0;
 }
-.trust strong { display: block; font-size: .95rem; }
-.trust span { font-size: .8rem; color: var(--muted); }
+
+.trust strong {
+  display: block;
+  font-size: .95rem;
+}
+
+.trust span {
+  font-size: .8rem;
+  color: var(--muted);
+}
 
 /* ============ الأقسام العامة ============ */
 section.container { padding-block: 44px; }
