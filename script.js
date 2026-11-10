@@ -386,11 +386,14 @@ function renderDelivery() {
 /* ====== الملخص ====== */
 function renderSummary() {
   const p = curPack();
-  $("#sumPack").textContent = `${T(`pack.${p.id}`)} — ${fmt(p.price)}`;
-  $("#sumDelivery").textContent = `${T(`del.${state.delivery}`)} — ${fmt(DELIVERY_FEES[state.delivery])}`;
-  $("#sumSaveRow").hidden = !p.save;
-  if (p.save) $("#sumSave").textContent = fmt(p.save);
+
   $("#sumTotal").textContent = fmt(total());
+
+  $("#sumPack").textContent = `${T(`pack.${p.id}`)} ${fmt(p.price)}`;
+
+  $("#sumDelivery").textContent =
+    `${T("sum.delivery")} ${fmt(DELIVERY_FEES[state.delivery])}`;
+
   $("#mainPrice").textContent = fmt(p.price);
 }
 
