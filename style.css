@@ -165,7 +165,7 @@ a { color: inherit; }
 .gallery-main img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   transition: opacity .25s ease;
 }
 .gallery-main img.is-fading { opacity: 0; }
