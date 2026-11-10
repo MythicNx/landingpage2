@@ -223,7 +223,7 @@ const COLOR_GALLERY = {
   white: [
     "images/ابعاد المنتج ابيض.webp",
     "images/صورة منتج لخصائص منتج ابيض.webp",
-     "images/صورة وصف.webp",
+    "images/صورة وصف.webp",
     "images/صورة وصف اخرى للمنتج ابيض.webp",
     "images/صورة وصف منتج.webp",
     "images/صورة اخرى للوصف.webp",
@@ -236,6 +236,21 @@ const COLOR_GALLERY = {
     "images/صورة وصف منتج.webp",
     "images/صورة اخرى للوصف.webp",
     "images/صور منتج للوصف.webp",
+  ],
+};
+
+/* ====== صور الباقات حسب اللون ====== */
+const COLOR_PACK_IMAGES = {
+  white: [
+    "images/ابيض قطة واحدة.webp",
+    "images/قطعتين ابيض.webp",
+    "images/ثلاث قطع ابيض.webp",
+  ],
+
+  black: [
+    "images/oneblack.webp",
+    "images/twoblack.webp",
+    "images/ثلاث طقع اسود.webp",
   ],
 };
 
@@ -307,24 +322,43 @@ $$(".color-dot").forEach((d) =>
 function renderPacks() {
   const box = $("#packs");
   box.innerHTML = "";
+
   PACKAGES.forEach((p) => {
     const opt = document.createElement("div");
+
     opt.className = "pack" + (p.id === state.pack ? " is-selected" : "");
     opt.setAttribute("role", "radio");
     opt.setAttribute("aria-checked", p.id === state.pack);
     opt.tabIndex = 0;
+
     opt.innerHTML = `
-  <span class="pack-name">
-    <img src="${COLOR_GALLERY[state.color][p.id - 1]}" class="pack-image" alt="">
-    <span>${T(`pack.${p.id}`)}</span>
-  </span>
-  <span class="pack-side">
-    <span class="pack-price">${fmt(p.price)}</span>
-    ${p.save ? `<span class="pack-save">${T("pack.save").replace("{n}", fmt(p.save))}</span>` : ""}
-  </span>`;
-    const pick = () => { state.pack = p.id; renderPacks(); renderSummary(); updateStickyBar(); };
+      <span class="pack-name">
+        <img src="${COLOR_PACK_IMAGES[state.color][p.id - 1]}" class="pack-image" alt="">
+        <span>${T(`pack.${p.id}`)}</span>
+      </span>
+
+      <span class="pack-side">
+        <span class="pack-price">${fmt(p.price)}</span>
+        ${p.save ? `<span class="pack-save">${T("pack.save").replace("{n}", fmt(p.save))}</span>` : ""}
+      </span>
+    `;
+
+    const pick = () => {
+      state.pack = p.id;
+      renderPacks();
+      renderSummary();
+      updateStickyBar();
+    };
+
     opt.addEventListener("click", pick);
-    opt.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pick(); } });
+
+    opt.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        pick();
+      }
+    });
+
     box.appendChild(opt);
   });
 }
