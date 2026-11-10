@@ -7,9 +7,24 @@ const ENDPOINT = "https://example.com/api/orders"; // TODO: ضع رابط الا
 
 /* ====== الأسعار والرسوم (ثابتة) ====== */
 const PACKAGES = [
-  { id: 1, price: 4900,  save: 0 },
-  { id: 2, price: 8900,  save: 900 },
-  { id: 3, price: 12500, save: 2200 },
+  {
+    id: 1,
+    price: 4900,
+    save: 0,
+    image: "images/ابيض قطة واحدة.webp"
+  },
+  {
+    id: 2,
+    price: 8900,
+    save: 900,
+    image: "images/قطعتين ابيض.webp"
+  },
+  {
+    id: 3,
+    price: 12500,
+    save: 2200,
+    image: "images/ثلاث قطع ابيض.webp"
+  },
 ];
 const DELIVERY_FEES = { home: 800, office: 600 };
 
