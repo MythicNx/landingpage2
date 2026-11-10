@@ -476,8 +476,11 @@ html[dir="ltr"] .pack-side { align-items: flex-end; }
 @media (max-width: 699px) {
   .trust {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, 1fr);
     gap: 0;
     padding: 16px;
+    height: 145px;
+    box-sizing: border-box;
   }
 
   .trust li {
@@ -518,7 +521,6 @@ html[dir="ltr"] .pack-side { align-items: flex-end; }
   font-size: .8rem;
   color: var(--muted);
 }
-
 /* ============ الأقسام العامة ============ */
 section.container { padding-block: 44px; }
 .section-head { text-align: center; margin-bottom: 28px; }
