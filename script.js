@@ -10,20 +10,17 @@ const PACKAGES = [
   {
     id: 1,
     price: 4900,
-    save: 0,
-    image: "images/ابيض قطة واحدة.webp"
+    save: 0
   },
   {
     id: 2,
     price: 8900,
-    save: 900,
-    image: "images/قطعتين ابيض.webp"
+    save: 900
   },
   {
     id: 3,
     price: 12500,
-    save: 2200,
-    image: "images/ثلاث قطع ابيض.webp"
+    save: 2200
   },
 ];
 const DELIVERY_FEES = { home: 800, office: 600 };
@@ -302,6 +299,7 @@ $$(".color-dot").forEach((d) =>
     state.galIndex = 0;
     renderColor();
     renderGallery(true);
+    renderPacks();
   })
 );
 
@@ -317,7 +315,7 @@ function renderPacks() {
     opt.tabIndex = 0;
     opt.innerHTML = `
   <span class="pack-name">
-    <img src="${p.image}" class="pack-image" alt="">
+    <img src="${COLOR_GALLERY[state.color][p.id - 1]}" class="pack-image" alt="">
     <span>${T(`pack.${p.id}`)}</span>
   </span>
   <span class="pack-side">
