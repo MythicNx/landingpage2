@@ -137,18 +137,18 @@
             <div class="delivery" id="deliveryOpts"></div>
           </fieldset>
 
-          <!-- الملخص -->
-          <div class="summary" id="summaryBox" aria-live="polite">
-            <p class="summary-title" data-i18n="sum.title">ملخص الطلب</p>
-            <div class="summary-row"><span data-i18n="sum.pack">الباقة</span><strong id="sumPack"></strong></div>
-            <div class="summary-row"><span data-i18n="sum.delivery">التوصيل</span><strong id="sumDelivery"></strong></div>
-            <div class="summary-row summary-save" id="sumSaveRow" hidden>
-              <span data-i18n="sum.save">توفيرك</span><strong id="sumSave" class="sum-save"></strong>
-            </div>
-            <div class="summary-row summary-total">
-              <span data-i18n="sum.total">المجموع</span><strong id="sumTotal"></strong>
-            </div>
-          </div>
+        <div class="summary">
+  <div class="summary-total">
+    <span data-i18n="sum.total">المجموع</span>
+    <strong id="sumTotal"></strong>
+  </div>
+
+  <div class="summary-details">
+    <span id="sumPack"></span>
+    <span> + </span>
+    <span id="sumDelivery"></span>
+  </div>
+</div>
 
           <button type="submit" class="btn btn-primary btn-block" id="submitBtn" data-cta="submit">
             <span class="btn-label" data-i18n="form.submit">تأكيد الطلب — الدفع عند الاستلام</span>
