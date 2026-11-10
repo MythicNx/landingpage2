@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maison Pratique — درج منزلق قابل للتعديل لخزائن المطبخ</title>
+<meta name="description" content="درج منزلق قابل للتعديل يُركَّب داخل خزائن المطبخ — Maison Pratique">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#order" data-i18n="skip">تخطَّ إلى استمارة الطلب</a>
+
+<!-- ======= الشريط العلوي ======= -->
+<header class="topbar">
+  <div class="container topbar-inner">
+    <a class="brand" href="#top" aria-label="Maison Pratique">
+      <img src="images/logo.webp" alt="شعار Maison Pratique" width="44" height="44">
+      <span class="brand-name">Maison Pratique</span>
+    </a>
+    <div class="top-actions">
+      <div class="lang-switch" role="group" aria-label="اللغة / Langue / Language">
+        <button type="button" class="lang-btn is-active" data-lang="ar" aria-pressed="true">ع</button>
+        <button type="button" class="lang-btn" data-lang="fr" aria-pressed="false">FR</button>
+        <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a href="#order" class="btn btn-primary btn-sm" data-cta="order_nav" data-i18n="nav.order">اطلب الآن</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ======= قسم المنتج ======= -->
+  <section class="hero container" id="product">
+    <div class="hero-grid">
+
+      <!-- المعرض -->
+      <div class="gallery reveal">
+        <div class="gallery-main">
+          <img id="mainImg" src="images/gallery-1.webp" width="800" height="1000"
+               alt="درج منزلق قابل للتعديل داخل خزانة مطبخ" fetchpriority="high">
+          <button type="button" class="gal-arrow gal-prev" id="galPrev" aria-label="السابق">
+            <i class="ph ph-caret-right" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="gal-arrow gal-next" id="galNext" aria-label="التالي">
+            <i class="ph ph-caret-left" aria-hidden="true"></i>
+          </button>
+          <span class="gal-counter" id="galCounter" aria-live="polite">1 / 7</span>
+        </div>
+        <div class="gallery-thumbs" id="galThumbs" role="tablist" aria-label="صور المنتج"></div>
+      </div>
+
+      <!-- صندوق الشراء -->
+      <div class="buybox reveal" id="order">
+        <p class="badge"><i class="ph ph-fire" aria-hidden="true"></i><span data-i18n="badge.limited">عرض لفترة محدودة</span></p>
+        <h1 class="product-title" data-i18n="product.title">درج منزلق قابل للتعديل لخزائن المطبخ</h1>
+        <p class="product-sub" data-i18n="product.subtitle">نظام تخزين منزلق يُركَّب داخل خزانتك الموجودة ليسحب محتوياتها إليك بسهولة، بدل إدخال يدك إلى أعماق الخزانة.</p>
+
+        <div class="price-row">
+          <span class="price-now" id="mainPrice">4900 دج</span>
+          <span class="price-old">5600 <span class="cur-old">دج</span></span>
+          <span class="save-chip" data-i18n="price.saveBadge">وفّر 700 دج</span>
+        </div>
+
+        <form id="orderForm" novalidate>
+          <!-- حقل honeypot مخفي ضد الروبوتات -->
+          <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <!-- اللون -->
+          <fieldset class="form-block">
+            <legend><span data-i18n="form.color">اختر اللون</span> — <strong id="colorName" class="color-name"></strong></legend>
+            <div class="colors">
+              <button type="button" class="color-dot dot-black is-selected" data-color="black" aria-pressed="true" aria-label="أسود"></button>
+              <button type="button" class="color-dot dot-white" data-color="white" aria-pressed="false" aria-label="أبيض"></button>
+            </div>
+          </fieldset>
+
+          <!-- الباقات -->
+          <fieldset class="form-block">
+            <legend data-i18n="form.pack">اختر الباقة</legend>
+            <div class="packs" id="packs"></div>
+          </fieldset>
+
+          <!-- الاسم والهاتف -->
+          <div class="row-2">
+            <div class="field">
+              <label for="f-name" data-i18n="form.name">الاسم الكامل</label>
+              <input type="text" id="f-name" name="name" autocomplete="name" data-i18n-ph="ph.name" placeholder="اكتب اسمك">
+              <small class="err" id="err-name" role="alert" hidden></small>
+            </div>
+            <div class="field">
+              <label for="f-phone" data-i18n="form.phone">رقم الهاتف</label>
+              <input type="tel" id="f-phone" name="phone" inputmode="numeric" autocomplete="tel" data-i18n-ph="ph.phone" placeholder="مثال: 0550123456">
+              <small class="err" id="err-phone" role="alert" hidden></small>
+            </div>
+          </div>
+
+          <!-- الولاية والبلدية -->
+          <div class="row-2">
+            <div class="field">
+              <label for="f-wilaya" data-i18n="form.wilaya">الولاية</label>
+              <select id="f-wilaya" name="wilaya">
+                <option value="" data-i18n="ph.wilaya">اختر الولاية</option>
+                <option>أدرار</option><option>الشلف</option><option>الأغواط</option><option>أم البواقي</option>
+                <option>باتنة</option><option>بجاية</option><option>بسكرة</option><option>بشار</option>
+                <option>البليدة</option><option>البويرة</option><option>تمنراست</option><option>تبسة</option>
+                <option>تلمسان</option><option>تيارت</option><option>تيزي وزو</option><option>الجزائر</option>
+                <option>الجلفة</option><option>جيجل</option><option>سطيف</option><option>سعيدة</option>
+                <option>سكيكدة</option><option>سيدي بلعباس</option><option>عنابة</option><option>قالمة</option>
+                <option>قسنطينة</option><option>المدية</option><option>مستغانم</option><option>المسيلة</option>
+                <option>معسكر</option><option>ورقلة</option><option>وهران</option><option>البيض</option>
+                <option>إليزي</option><option>برج بوعريريج</option><option>بومرداس</option><option>الطارف</option>
+                <option>تندوف</option><option>تيسمسيلت</option><option>الوادي</option><option>خنشلة</option>
+                <option>سوق أهراس</option><option>تيبازة</option><option>ميلة</option><option>عين الدفلى</option>
+                <option>النعامة</option><option>عين تموشنت</option><option>غرداية</option><option>غليزان</option>
+                <option>تيميمون</option><option>برج باجي مختار</option><option>أولاد جلال</option><option>بني عباس</option>
+                <option>عين صالح</option><option>عين قزام</option><option>تقرت</option><option>جانت</option>
+                <option>المغير</option><option>المنيعة</option>
+              </select>
+              <small class="err" id="err-wilaya" role="alert" hidden></small>
+            </div>
+            <div class="field">
+              <label for="f-commune" data-i18n="form.commune">البلدية</label>
+              <input type="text" id="f-commune" name="commune" autocomplete="address-level2" data-i18n-ph="ph.commune" placeholder="اكتب البلدية">
+              <small class="err" id="err-commune" role="alert" hidden></small>
+            </div>
+          </div>
+
+          <!-- التوصيل -->
+          <fieldset class="form-block">
+            <legend data-i18n="form.delivery">طريقة التوصيل</legend>
+            <div class="delivery" id="deliveryOpts"></div>
+          </fieldset>
+
+          <!-- الملخص -->
+          <div class="summary" id="summaryBox" aria-live="polite">
+            <p class="summary-title" data-i18n="sum.title">ملخص الطلب</p>
+            <div class="summary-row"><span data-i18n="sum.pack">الباقة</span><strong id="sumPack"></strong></div>
+            <div class="summary-row"><span data-i18n="sum.delivery">التوصيل</span><strong id="sumDelivery"></strong></div>
+            <div class="summary-row summary-save" id="sumSaveRow" hidden>
+              <span data-i18n="sum.save">توفيرك</span><strong id="sumSave" class="sum-save"></strong>
+            </div>
+            <div class="summary-row summary-total">
+              <span data-i18n="sum.total">المجموع</span><strong id="sumTotal"></strong>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block" id="submitBtn" data-cta="submit">
+            <span class="btn-label" data-i18n="form.submit">تأكيد الطلب — الدفع عند الاستلام</span>
+            <span class="btn-spinner" hidden aria-hidden="true"></span>
+          </button>
+          <p class="form-error" id="formError" role="alert" hidden></p>
+
+          <div class="success-box" id="successBox" hidden tabindex="-1">
+            <i class="ph ph-check-circle" aria-hidden="true"></i>
+            <h3 data-i18n="success.title">تم استلام طلبك بنجاح</h3>
+            <p data-i18n="success.text">سنتصل بك قريباً لتأكيد الطلب. الدفع عند الاستلام.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- قائمة الثقة -->
+    <ul class="trust reveal">
+      <li><i class="ph ph-hand-coins" aria-hidden="true"></i><div><strong data-i18n="trust1.t">الدفع عند الاستلام</strong><span data-i18n="trust1.s">ادفع لعامل التوصيل عند استلام طلبك</span></div></li>
+      <li><i class="ph ph-truck" aria-hidden="true"></i><div><strong data-i18n="trust2.t">توصيل إلى 69 ولاية</strong><span data-i18n="trust2.s">رسوم ثابتة لكل الولايات</span></div></li>
+      <li><i class="ph ph-house-line" aria-hidden="true"></i><div><strong data-i18n="trust3.t">توصيل منزلي أو مكتبي</strong><span data-i18n="trust3.s">اختر ما يناسبك</span></div></li>
+      <li><i class="ph ph-phone-call" aria-hidden="true"></i><div><strong data-i18n="trust4.t">نتصل بك للتأكيد</strong><span data-i18n="trust4.s">نتصل بك قبل الشحن</span></div></li>
+    </ul>
+  </section>
+
+  <!-- ======= المزايا والاستخدامات ======= -->
+  <section class="features container">
+    <header class="section-head reveal">
+      <h2 data-i18n="features.heading">لماذا هذا الدرج؟</h2>
+      <p data-i18n="features.sub">حل عملي يحوّل خزانتك العميقة إلى مساحة تخزين تُسحب إليك</p>
+    </header>
+    <div class="feature-grid">
+      <article class="feature-card reveal">
+        <i class="ph ph-arrows-left-right" aria-hidden="true"></i>
+        <h3 data-i18n="f1.t">قضبان تلسكوبية</h3>
+        <p data-i18n="f1.s">قضبان تلسكوبية تسمح بتمديد الدرج وإرجاعه بسهولة وسلاسة.</p>
+      </article>
+      <article class="feature-card reveal">
+        <i class="ph ph-ruler" aria-hidden="true"></i>
+        <h3 data-i18n="f2.t">عرض قابل للتعديل</h3>
+        <p data-i18n="f2.s">يتراوح العرض من 32 إلى 52 سم ليناسب خزائن بمقاسات مختلفة.</p>
+      </article>
+      <article class="feature-card reveal">
+        <i class="ph ph-stack" aria-hidden="true"></i>
+        <h3 data-i18n="f3.t">طقم من درجين</h3>
+        <p data-i18n="f3.s">القطعة الواحدة عبارة عن طقم من درجين.</p>
+      </article>
+      <article class="feature-card reveal">
+        <i class="ph ph-cooking-pot" aria-hidden="true"></i>
+        <h3 data-i18n="f4.t">تخزين متعدد الاستخدامات</h3>
+        <p data-i18n="f4.s">للقدور والمقالي، مواد التنظيف أسفل الحوض، أدوات المطبخ وعلب الطعام.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ======= صور التفاصيل ======= -->
+  <section class="details container">
+    <header class="section-head reveal">
+      <h2 data-i18n="uses.heading">استخدامات متعددة</h2>
+      <p data-i18n="uses.sub">مطبخ منظم بأناقة — وصول كامل لكل شيء</p>
+    </header>
+    <figure class="detail-fig reveal">
+      <img src="images/صورة جميلة لوصف منتج.webp" width="1024" height="1024" loading="lazy"
+           alt="أبعاد المنتج وتوافقه مع خزائن بعرض من 32 إلى 52 سم">
+    </figure>
+    <figure class="detail-fig reveal">
+      <img src="images/صورة جميلة اخرى لوصف منتج.webp" width="1024" height="1024" loading="lazy"
+           alt="قابل للتوسيع لليمين واليسار — قضبان توسيع أوسع وقابلة للتمديد">
+    </figure>
+    <figure class="detail-fig reveal">
+      <img src="images/صورة اخرى للوصف.webp" width="1024" height="1024" loading="lazy"
+           alt="نسخة سوداء: قابلة للتوسيع لليمين واليسار">
+    </figure>
+    <figure class="detail-fig reveal">
+      <img src="images/صور منتج للوصف.webp" width="1024" height="1024" loading="lazy"
+           alt="خطوات التركيب: انزع الشريط اللاصق، ضعه في الخزانة، اضغط بقوة">
+    </figure>
+    <figure class="detail-fig reveal">
+      <img src="images/صور عرض جميلة لوصف منتج.webp" width="1024" height="1024" loading="lazy"
+           alt="3 شرائط لاصقة مجانية معاً في كل طقم">
+    </figure>
+    <figure class="detail-fig reveal">
+      <img src="images/صورة وصف للاجابة على اسئلة.webp" width="1024" height="1024" loading="lazy"
+           alt="أمثلة استخدام: غرفة المؤن، الكراج، الحمام والمطبخ">
+    </figure>
+    <div class="details-cta reveal">
+      <a href="#order" class="btn btn-primary btn-lg" data-cta="order_details" data-i18n="bar.order">اطلب الآن</a>
+    </div>
+  </section>
+
+  <!-- ======= الأسئلة الشائعة ======= -->
+  <section class="faq container">
+    <header class="section-head reveal">
+      <h2 data-i18n="faq.heading">أسئلة شائعة</h2>
+    </header>
+    <div class="faq-list">
+      <details class="reveal">
+        <summary><span data-i18n="q1">هل أدفع قبل الاستلام؟</span><i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p data-i18n="a1">لا، الدفع عند الاستلام لعامل التوصيل.</p>
+      </details>
+      <details class="reveal">
+        <summary><span data-i18n="q2">متى يصل الطلب؟</span><i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p data-i18n="a2">نتصل بك لتأكيد الطلب ثم نرسله، والمدة تختلف حسب الولاية. التوصيل إلى المكتب 600 دج وإلى المنزل 800 دج.</p>
+      </details>
+      <details class="reveal">
+        <summary><span data-i18n="q3">ما العرض القابل للتعديل؟</span><i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p data-i18n="a3">يتراوح من 32 إلى 52 سم ليناسب خزائن بمقاسات مختلفة.</p>
+      </details>
+      <details class="reveal">
+        <summary><span data-i18n="q4">ماذا أستطيع أن أخزّن فيه؟</span><i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p data-i18n="a4">القدور والمقالي، مواد التنظيف أسفل الحوض، أدوات المطبخ وعلب الطعام.</p>
+      </details>
+      <details class="reveal">
+        <summary><span data-i18n="q5">كم درجاً في القطعة الواحدة؟</span><i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p data-i18n="a5">طقم من درجين.</p>
+      </details>
+      <details class="reveal">
+        <summary><span data-i18n="q6">هل يمكنني طلب أكثر من قطعة؟</span><i class="ph ph-plus" aria-hidden="true"></i></summary>
+        <p data-i18n="a6">نعم، اختر قطعتين أو 3 في الاستمارة، وكلما زادت الكمية زاد التوفير.</p>
+      </details>
+    </div>
+  </section>
+</main>
+
+<!-- ======= التذييل ======= -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <img src="images/logo.webp" alt="Maison Pratique" width="52" height="52" loading="lazy">
+    <p class="footer-tag" data-i18n="footer.tagline">حلول عملية لمنزلك</p>
+    <p class="footer-brand">Maison Pratique Shop</p>
+  </div>
+</footer>
+
+<!-- ======= الشريط السفلي الثابت (هاتف) ======= -->
+<div class="stickybar" id="stickyBar" aria-hidden="true">
+  <div class="sticky-info">
+    <strong class="sticky-price" id="stickyPrice"></strong>
+    <span class="sticky-label" id="stickyLabel"></span>
+  </div>
+  <button type="button" class="btn btn-primary" id="stickyBtn" data-cta="order_bar"></button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
