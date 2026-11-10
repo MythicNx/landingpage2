@@ -703,9 +703,13 @@ section.container { padding-block: 44px; }
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 767px) {
   .gallery-main {
     aspect-ratio: 4 / 5;
+  }
+
+  .gallery-main img {
+    object-fit: contain;
   }
 }
 
