@@ -229,7 +229,7 @@ const COLOR_GALLERY = {
 /* ====== الحالة ====== */
 const state = {
   lang: "ar",
-  color: "black",
+  color: "white",
   pack: 1,
   delivery: "home",
   galIndex: 0,
