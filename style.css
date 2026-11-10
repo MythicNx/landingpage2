@@ -381,30 +381,43 @@ html[dir="ltr"] .pack-side { align-items: flex-end; }
 .del-opt small { display: block; font-weight: 500; color: var(--muted); font-size: .78rem; }
 
 /* الملخص */
+/* ====== ملخص الطلب ====== */
 .summary {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 16px 18px;
-  display: grid;
-  gap: 8px;
-}
-.summary-title { font-weight: 800; margin-bottom: 2px; }
-.summary-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: var(--muted);
-  font-size: .94rem;
-}
-.summary-row strong { color: var(--ink); }
-.summary-save strong { color: var(--success); }
-.summary-total {
+  margin-top: 18px;
+  padding-top: 18px;
   border-top: 1px dashed var(--border);
-  padding-top: 10px;
-  font-size: 1.05rem;
+  background: transparent;
 }
-.summary-total strong { font-size: 1.3rem; font-weight: 900; }
+
+.summary-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  direction: rtl;
+}
+
+.summary-total span {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.summary-total strong {
+  font-size: 1.7rem;
+  font-weight: 900;
+  color: #5A3825;
+  direction: ltr;
+  white-space: nowrap;
+}
+
+.summary-details {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--muted);
+  direction: rtl;
+  line-height: 1.6;
+}
 
 .form-error {
   background: #FBEDEA;
