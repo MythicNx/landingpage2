@@ -709,7 +709,7 @@ section.container { padding-block: 44px; }
   }
 
   .gallery-main img {
-    object-fit: contain;
+    object-fit: cover;
   }
 }
 
