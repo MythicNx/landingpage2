@@ -704,7 +704,9 @@ section.container { padding-block: 44px; }
 }
 
 @media (max-width: 600px) {
-  .gallery-main { aspect-ratio: 1 / 1; }
+  .gallery-main {
+    aspect-ratio: 4 / 5;
+  }
 }
 
 @media (max-width: 359px) {
