@@ -259,7 +259,7 @@ html[dir="ltr"] .gal-next { right: 12px; }
 .price-now {
   font-size: 1.9rem;
   font-weight: 900;
-  color: #5A3825;
+  color: #c2602f;
 }
 
 .price-old {
@@ -343,7 +343,7 @@ html[dir="ltr"] .pack-side { align-items: flex-end; }
 .pack-price {
   font-weight: 900;
   font-size: 1.18rem;
-  color: #5A3825;
+  color: #c2602f;
 }
 .pack-save { font-size: .88rem; font-weight: 700; color: var(--success); }
 
@@ -417,7 +417,7 @@ html[dir="ltr"] .pack-side { align-items: flex-end; }
 .summary-total strong {
   font-size: 1.7rem;
   font-weight: 900;
-  color: #5A3825;
+  color: #c2602f;
   direction: ltr;
   white-space: nowrap;
 }
