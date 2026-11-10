@@ -316,11 +316,14 @@ function renderPacks() {
     opt.setAttribute("aria-checked", p.id === state.pack);
     opt.tabIndex = 0;
     opt.innerHTML = `
-      <span class="pack-name"><i class="ph ph-package" aria-hidden="true"></i>${T(`pack.${p.id}`)}</span>
-      <span class="pack-side">
-        <span class="pack-price">${fmt(p.price)}</span>
-        ${p.save ? `<span class="pack-save">${T("pack.save").replace("{n}", fmt(p.save))}</span>` : ""}
-      </span>`;
+  <span class="pack-name">
+    <img src="${p.image}" class="pack-image" alt="">
+    <span>${T(`pack.${p.id}`)}</span>
+  </span>
+  <span class="pack-side">
+    <span class="pack-price">${fmt(p.price)}</span>
+    ${p.save ? `<span class="pack-save">${T("pack.save").replace("{n}", fmt(p.save))}</span>` : ""}
+  </span>`;
     const pick = () => { state.pack = p.id; renderPacks(); renderSummary(); updateStickyBar(); };
     opt.addEventListener("click", pick);
     opt.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pick(); } });
