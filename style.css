@@ -396,7 +396,7 @@ html[dir="ltr"] .pack-side { align-items: flex-end; }
 }
 
 .summary-total span {
-  font-size: 1rem;
+  font-size: 1.15rem;
   font-weight: 800;
   color: var(--ink);
 }
@@ -412,8 +412,9 @@ html[dir="ltr"] .pack-side { align-items: flex-end; }
 .summary-details {
   margin-top: 10px;
   text-align: center;
-  font-size: 0.9rem;
-  color: var(--muted);
+  font-size: 0.98rem;       /* slightly bigger */
+  font-weight: 600;         /* slightly stronger */
+  color: #6B5547;            /* slightly darker */
   direction: rtl;
   line-height: 1.6;
 }
