@@ -389,7 +389,8 @@ function renderSummary() {
 
   $("#sumTotal").textContent = fmt(total());
 
-  $("#sumPack").textContent = `${T(`pack.${p.id}`)} ${fmt(p.price)}`;
+  $("#sumPack").textContent =
+    `${T(`pack.${p.id}`)} ${fmt(p.price)}`;
 
   $("#sumDelivery").textContent =
     `${T("sum.delivery")} ${fmt(DELIVERY_FEES[state.delivery])}`;
