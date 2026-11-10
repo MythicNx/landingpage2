@@ -159,7 +159,7 @@ a { color: inherit; }
   overflow: hidden;
   background: var(--surface);
   box-shadow: var(--shadow);
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1 / 1;
 }
 
 .gallery-main img {
