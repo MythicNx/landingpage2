@@ -211,12 +211,19 @@ const COLOR_GALLERY = {
   white: [
     "images/ابعاد المنتج ابيض.webp",
     "images/صورة منتج لخصائص منتج ابيض.webp",
+     "images/صورة وصف.webp",
     "images/صورة وصف اخرى للمنتج ابيض.webp",
+    "images/صورة وصف منتج.webp",
+    "images/صورة اخرى للوصف.webp",
+    "images/صور منتج للوصف.webp",
   ],
 
   black: [
     "images/وصف ابعاد المنتج اسود.webp",
     "images/صورة لخصائخ منتج اسود.webp",
+    "images/صورة وصف منتج.webp",
+    "images/صورة اخرى للوصف.webp",
+    "images/صور منتج للوصف.webp",
   ],
 };
 
