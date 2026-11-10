@@ -386,7 +386,7 @@ html[dir="ltr"] .pack-side { align-items: flex-end; }
   margin-top: 18px;
   padding-top: 18px;
   border-top: 1px dashed var(--border);
-  background: transparent;
+  
 }
 
 .summary-total {
