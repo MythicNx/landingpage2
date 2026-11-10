@@ -490,7 +490,7 @@ html[dir="ltr"] .pack-side { align-items: flex-end; }
   }
 
   .trust span {
-    font-size: .75rem;
+    display: none;
   }
 }
 
