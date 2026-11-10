@@ -256,8 +256,17 @@ html[dir="ltr"] .gal-next { right: 12px; }
   border: 1px solid var(--border);
   border-radius: var(--radius);
 }
-.price-now { font-size: 1.9rem; font-weight: 900; color: var(--ink); }
-.price-old { color: var(--muted); text-decoration: line-through; font-size: 1.05rem; }
+.price-now {
+  font-size: 1.9rem;
+  font-weight: 900;
+  color: #5A3825;
+}
+
+.price-old {
+  color: var(--muted);
+  text-decoration: line-through;
+  font-size: 1.15rem;
+}
 .save-chip {
   background: var(--success);
   color: #fff;
