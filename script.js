@@ -474,17 +474,25 @@ form.addEventListener("submit", async (e) => {
   spinner.hidden = false;
   label.style.opacity = ".7";
 
-  const payload = {
-    name: $("#f-name").value.trim(),
-    phone: $("#f-phone").value.replace(/[\s-]/g, ""),
-    wilaya: $("#f-wilaya").value,
-    commune: $("#f-commune").value.trim(),
-    delivery: state.delivery,
-    color: T(`color.${state.color}`),
-    pack: T(`pack.${state.pack}`),
-    total: total(),
-    currency: T("currency"),
-  };
+  const turnstileToken = document.querySelector(
+  '[name="cf-turnstile-response"]'
+)?.value;
+
+const payload = {
+  name: $("#f-name").value.trim(),
+  phone: $("#f-phone").value.replace(/[\s-]/g, ""),
+  wilaya: $("#f-wilaya").value,
+  commune: $("#f-commune").value.trim(),
+  delivery: state.delivery,
+  color: T(`color.${state.color}`),
+  pack: T(`pack.${state.pack}`),
+  total: total(),
+  currency: T("currency"),
+  turnstileToken: turnstileToken,
+};
+   if (!turnstileToken) {
+  throw new Error("Please complete the security check.");
+}
 
   try {
     const res = await fetch(ENDPOINT, {
