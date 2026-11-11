@@ -456,6 +456,13 @@ function validate() {
 const form = $("#orderForm");
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
+   if (
+  typeof fbq === "function" &&
+  !window.checkoutEventTracked
+) {
+  fbq("track", "InitiateCheckout");
+  window.checkoutEventTracked = true;
+}
   const formError = $("#formError");
   formError.hidden = true;
 
@@ -466,6 +473,10 @@ form.addEventListener("submit", async (e) => {
     form.querySelector(".is-invalid")?.focus();
     return;
   }
+   // Meta Pixel — InitiateCheckout
+if (typeof fbq === "function") {
+  fbq("track", "InitiateCheckout");
+}
 
   const btn = $("#submitBtn");
   const label = btn.querySelector(".btn-label");
@@ -550,10 +561,7 @@ function updateStickyBar() {
 }
 stickyBtn.addEventListener("click", () => {
 
-  // Meta Pixel — Order button clicked
-  if (typeof fbq === "function") {
-    fbq("track", "InitiateCheckout");
-  }
+  
 
   if (formInView) {
     $("#submitBtn").click();
