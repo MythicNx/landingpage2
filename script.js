@@ -503,6 +503,13 @@ const payload = {
   },
   body: JSON.stringify(payload),
 });
+     // Meta Pixel — Order submitted
+if (typeof fbq === "function") {
+  fbq("track", "Lead", {
+    value: total(),
+    currency: "DZD"
+  });
+}
 
     form.querySelectorAll("fieldset, .row-2, .summary, #submitBtn").forEach((el) => (el.hidden = true));
     const success = $("#successBox");
