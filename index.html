@@ -151,6 +151,11 @@
   </div>
 
 </div>
+          <!-- Cloudflare Turnstile -->
+<div
+  class="cf-turnstile"
+  data-sitekey="0x4AAAAAAF8aAEOF58HqKLYZ"
+></div>
 
           <button type="submit" class="btn btn-primary btn-block" id="submitBtn" data-cta="submit">
             <span class="btn-label" data-i18n="form.submit">تأكيد الطلب — الدفع عند الاستلام</span>
@@ -265,6 +270,12 @@
   </div>
   <button type="button" class="btn btn-primary" id="stickyBtn" data-cta="order_bar"></button>
 </div>
+
+<script
+  src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+  async
+  defer
+></script>
 
 <script src="script.js"></script>
 </body>
