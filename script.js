@@ -3,7 +3,7 @@
    ============================================================ */
 
 /* ====== إعدادات الإرسال: غيّر رابط استقبال الطلبات هنا ====== */
-const ENDPOINT = "https://script.google.com/macros/s/AKfycbx3Zs34MfMGSxTD6xTWLlpIJ3RVbGdLYS_CPiOtVtttwF9FaFkdY71F0qPg6Gnb2x0r/exec"; // TODO: ضع رابط الاستقبال الحقيقي (Sheet / API / سيرفرك)
+const ENDPOINT = "https://script.google.com/macros/s/AKfycbwB0YkRiLBvkZFRv17nXAE7Axv4NM_dwO8WfQhVCdQcTkDQgsF5ukYbuz_jbTp2MHPZ/exec"; // TODO: ضع رابط الاستقبال الحقيقي (Sheet / API / سيرفرك)
 
 /* ====== الأسعار والرسوم (ثابتة) ====== */
 const PACKAGES = [
