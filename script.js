@@ -529,7 +529,7 @@ const payload = {
 });
      // Meta Pixel — Order submitted
 if (typeof fbq === "function") {
-  fbq("track", "Lead", {
+  fbq("track", "Purchase", {
     value: total(),
     currency: "DZD"
   });
