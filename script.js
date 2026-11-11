@@ -549,8 +549,18 @@ function updateStickyBar() {
   }
 }
 stickyBtn.addEventListener("click", () => {
-  if (formInView) { $("#submitBtn").click(); }
-  else { $("#order").scrollIntoView({ behavior: "smooth" }); }
+
+  // Meta Pixel — Order button clicked
+  if (typeof fbq === "function") {
+    fbq("track", "InitiateCheckout");
+  }
+
+  if (formInView) {
+    $("#submitBtn").click();
+  } else {
+    $("#order").scrollIntoView({ behavior: "smooth" });
+  }
+
 });
 const formObserver = new IntersectionObserver(
   ([entry]) => { formInView = entry.isIntersecting; updateStickyBar(); },
