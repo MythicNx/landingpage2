@@ -1,6 +1,19 @@
 /* ============================================================
    Maison Pratique — سلوك الصفحة
    ============================================================ */
+// Meta Pixel — Website Link Click
+document.addEventListener("click", (e) => {
+  const link = e.target.closest("a");
+
+  if (!link) return;
+
+  if (typeof fbq === "function") {
+    fbq("trackCustom", "LinkClick", {
+      link_url: link.href,
+      link_text: link.innerText.trim()
+    });
+  }
+});
 
 /* ====== إعدادات الإرسال: غيّر رابط استقبال الطلبات هنا ====== */
 const ENDPOINT = "https://script.google.com/macros/s/AKfycbyMJbd9-lCXWyF4H97tnHUNxTYytgvJyRpRyKcEPCXnDN1Osj1Vr9ySOo4ds2QVqPIF/exec"; // TODO: ضع رابط الاستقبال الحقيقي (Sheet / API / سيرفرك)
